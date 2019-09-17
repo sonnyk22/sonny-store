@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 // ===============================================================================
 // Libs
@@ -11,7 +12,7 @@ import ReactPaginate from 'react-paginate';
 
 // ===============================================================================
 // Imported Features (Core)
-import { CoreLogger as logger } from '../../core';
+import { CoreLogger as logger, CoreConstant } from '../../core';
 
 // ===============================================================================
 // Imported Features (Redux)
@@ -61,6 +62,8 @@ class Category extends React.Component {
         //=====================================================
         return (
             <>
+                {this.props.hasInternalError && <Redirect to='/error' /> }
+
                 <div className="header-image">
                     <div className="header-block">
 
@@ -81,7 +84,7 @@ class Category extends React.Component {
                 </div>
 
                 <div className="layout-container">
-                    <div className="product-grid">
+                    <div className="product-grid row">
 
                         {products.map(p => {
                             return (
@@ -151,7 +154,7 @@ class Category extends React.Component {
 //*****            Components Validations             *****
 //*********************************************************
 Category.propTypes = {
-    products: PropTypes.object.isRequired
+    products: PropTypes.array.isRequired
 };
 
 //*********************************************************
@@ -161,8 +164,8 @@ function mapStateToProps(state) {
     const props = {
         hasInternalError: false,
         products: [],
-        pageCount: 10,
-        perPage: 10
+        pageCount: CoreConstant.PageCount,
+        perPage: CoreConstant.PerPage
     }
 
     if (!state) {

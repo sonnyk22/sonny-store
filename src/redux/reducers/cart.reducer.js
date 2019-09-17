@@ -34,7 +34,7 @@ export default function cartReducer(state = initialState.cart, action) {
             return [
                 ...state.filter(p => p.product.id !== action.product.id),
                 { ...{ product: action.product, quantity: quantity }}
-              ];
+            ];
 
         case types.DELETE_FROM_CART_SUCCESS:
             logger.debug(`${logPrefix} ${fName}. Reducer: DELETE_FROM_CART_SUCCESS.`);

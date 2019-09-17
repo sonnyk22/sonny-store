@@ -92,8 +92,8 @@ function Cart({ props, actions }) {
                                         </div>
 
                                         <div className="cart-item-info">
-                                            <div className="cart-item-brand">{c.product.brand}}</div>
-                                            <div className="cart-item-title">{c.product.title}}</div>
+                                            <div className="cart-item-brand">{c.product.brand}</div>
+                                            <div className="cart-item-title">{c.product.title}</div>
                                         </div>
                                     </div>
 

@@ -41,6 +41,9 @@ const CoreConstant = {
     NodeEnv: 'development',
     ServiceBaseUrl: 'http://localhost:3035',
 
+    PageCount: 10,
+    PerPage: 10,
+
     ResCodes: _resCodes
 };
 

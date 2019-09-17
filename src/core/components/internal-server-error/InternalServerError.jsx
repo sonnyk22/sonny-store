@@ -34,9 +34,9 @@ function mapStateToProps(state) {
         return props;
     }
 
-    if (state.hasOwnProperty('restaurants')) {
-        if (state.restaurants.hasOwnProperty('error')) {
-            if (CoreConstant.ServerNotRunningError.indexOf(state.restaurants.error) > -1) {
+    if (state.hasOwnProperty('products')) {
+        if (state.products.hasOwnProperty('error')) {
+            if (CoreConstant.ServerNotRunningError.indexOf(state.products.error) > -1) {
                 props.hasServerStarted = true;
             }
         }
